@@ -1,0 +1,14 @@
+{
+  "databases": [
+    {
+      "name": "taskflow",
+      "version": 10
+    }
+  ],
+  "serviceWorker": "activated",
+  "caches": [
+    "workbox-precache-v2-http://127.0.0.1:4173/"
+  ],
+  "controlled": true,
+  "standalone": false
+}

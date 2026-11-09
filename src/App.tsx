@@ -77,6 +77,7 @@ export default function App() {
     needRefresh: [needRefresh],
     updateServiceWorker,
   } = useRegisterSW({
+    immediate: true,
     onRegisterError: () =>
       setMessage(
         "No se pudo activar el modo offline. Revisa tu conexión y recarga.",

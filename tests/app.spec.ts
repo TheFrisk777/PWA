@@ -192,7 +192,8 @@ test("GPS concedido y denegado, tema persistente y alternativa de avisos", async
   await page.getByLabel("Tema", { exact: true }).selectOption("oscuro");
   await page.reload();
   await expect(page.getByLabel("Tema", { exact: true })).toHaveValue("oscuro");
-  await page.getByLabel("Mostrar recordatorios").check();
+  await page.getByLabel("Mostrar recordatorios").click();
+  await expect(page.getByLabel("Mostrar recordatorios")).toBeChecked();
   await page.screenshot({
     path: "docs/evidencias/configuracion.png",
     fullPage: true,

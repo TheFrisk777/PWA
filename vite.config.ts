@@ -1,4 +1,56 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { VitePWA } from 'vite-plugin-pwa';
-export default defineConfig({plugins:[react(),VitePWA({registerType:'prompt',manifestFilename:'manifest.json',includeAssets:['icons/*.png'],manifest:{id:'/',name:'TaskFlow — Gestor Inteligente de Actividades',short_name:'TaskFlow',description:'Tu día, en orden. Actividades y recordatorios disponibles sin conexión.',lang:'es',start_url:'/',scope:'/',display:'standalone',background_color:'#f5f7f5',theme_color:'#126958',icons:[{src:'/icons/icon-192.png',sizes:'192x192',type:'image/png'},{src:'/icons/icon-512.png',sizes:'512x512',type:'image/png'},{src:'/icons/maskable-512.png',sizes:'512x512',type:'image/png',purpose:'maskable'}]},workbox:{cleanupOutdatedCaches:true,navigateFallback:'/index.html',globPatterns:['**/*.{js,css,html,png,svg,woff2}'],runtimeCaching:[{urlPattern:/\/icons\//,handler:'CacheFirst',options:{cacheName:'taskflow-icons-v1',expiration:{maxEntries:10}}},{urlPattern:/\/manifest\.json$/,handler:'StaleWhileRevalidate',options:{cacheName:'taskflow-public-v1'}}]}})]});
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { VitePWA } from "vite-plugin-pwa";
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: "prompt",
+      manifestFilename: "manifest.json",
+      includeAssets: ["icons/*.png"],
+      manifest: {
+        id: "/",
+        name: "TaskFlow — Gestor Inteligente de Actividades",
+        short_name: "TaskFlow",
+        description:
+          "Tu día, en orden. Actividades y recordatorios disponibles sin conexión.",
+        lang: "es",
+        start_url: "/",
+        scope: "/",
+        display: "standalone",
+        background_color: "#f5f7f5",
+        theme_color: "#126958",
+        icons: [
+          { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+          {
+            src: "/icons/maskable-512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
+        ],
+      },
+      workbox: {
+        cleanupOutdatedCaches: true,
+        navigateFallback: "/index.html",
+        globPatterns: ["**/*.{js,css,html,png,svg,woff2}"],
+        runtimeCaching: [
+          {
+            urlPattern: /\/icons\//,
+            handler: "CacheFirst",
+            options: {
+              cacheName: "taskflow-icons-v1",
+              expiration: { maxEntries: 10 },
+            },
+          },
+          {
+            urlPattern: /\/manifest\.json$/,
+            handler: "StaleWhileRevalidate",
+            options: { cacheName: "taskflow-public-v1" },
+          },
+        ],
+      },
+    }),
+  ],
+});
